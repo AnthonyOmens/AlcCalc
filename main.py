@@ -69,6 +69,18 @@ print(f"Your drink is {userDrink.name}, with {userDrink.floz} ounces and {userDr
 
 # How many bottles/cans
 
+#HERE make a loop that changes the string input of userDrink to the exact drink var name
+
+for x in drinkList:
+  print("start of For Loop")
+  if x.name == userDrink:
+    print("x.name = {x.name}")
+    userDrink = x.name
+    print(f"userDrink = {userDrink}")
+
+
+
+
 for x in drinkList:
   if userDrink.name != x.name:
     print(f"{drinkAmount} {userDrink.name} is equal to {userDrink.pureAlcOz} / {x.pureAlcOz()} {x.name}s")
