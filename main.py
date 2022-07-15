@@ -48,6 +48,8 @@ drinkList= [sojuI, budLightI, burnettsI]
 sojuI.drinkLine()
 budLightI.drinkLine()
 burnettsI.drinkLine()
+# next time make this a for loop!!!
+
 
 print("")
 
