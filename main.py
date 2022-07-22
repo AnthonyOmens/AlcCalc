@@ -43,6 +43,9 @@ budLightI = Drink("Bud Light", 16, .05)
 burnettsI = Drink("Burnetts", shot, .40)
 
 drinkList= [sojuI, budLightI, burnettsI]
+drinkListDict = { "Soju": sojuI, 
+                 "Bud Light": budLightI, 
+                 "Burnetts": burnettsI}
 #make a list of drinks to easily cycle thrugh them. Maybe make a lists of drinks and their info instead of the I vars
 
 sojuI.drinkLine()
@@ -81,8 +84,9 @@ drinkAmount = 1
 for x in drinkList:
   if userDrink == str(x.name):
     userDrink = x
+    
 
-print(f"Your drink is {userDrink.name}, with {userDrink.floz} ounces and {userDrink.alcPercent}% of alcohol")
+print(f"Your drink is {userDrink.name}, with {userDrink.floz} ounces and {userDrink.alcPercent} percent of alcohol")
 
 # How many bottles/cans
 
@@ -97,6 +101,7 @@ for x in drinkList:
     print(f"{drinkAmount} {userDrink.name} is equal to {pureAlcOzDivision} {x.name}s")
 #This now works!!!
 #-------------------
+# Now it doesnt work on VS code??
 
 # print: x amount of drinkAnswer is equal to x ammount of drink1 and x ammount of drink 2. #maybe do a forLoop here to cycle through the drinks when I add more
 # dont print drinkAnswer since they already typed that in
