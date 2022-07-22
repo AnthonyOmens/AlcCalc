@@ -70,7 +70,7 @@ print(f"burnettsI.pureAlcOz: Burnetts has {burnettsI.pureAlcOz} oz of pure alcoh
 # make inputs. 
 # What are you drinking? (pick one)
 
-userDrink = input(f"What are you drinking?\n{sojuI.name}, {budLightI.name}, {burnettsI.name}\nPlease type EXACT name\n")
+userDrink = input(f"What are you drinking?\n{sojuI.name}, {budLightI.name}, {burnettsI.name}\nPlease type EXACT name\n").title()
 
 drinkAmount = 1
 
@@ -85,8 +85,18 @@ for x in drinkList:
   if userDrink == str(x.name):
     userDrink = x
     
+#print(f"userDrink.name: {userDrink.name}")
 
-print(f"Your drink is {userDrink.name}, with {userDrink.floz} ounces and {userDrink.alcPercent} percent of alcohol")
+#print(f"drinkListDict[userDrink.name]: {drinkListDict[userDrink.name]}")
+
+userDrinkdotName = userDrink.name
+# why do I have to do this in VS Code and not Replit? well... IDK
+
+print(f"Your drink is {userDrinkdotName}, with {userDrink.floz} ounces and {userDrink.alcPercent} percent of alcohol")
+
+# Now it doesnt work on VS code??
+# the dict might fix this, leap year calculator might have the solution
+# the dict was the answer, thank you leap year
 
 # How many bottles/cans
 
@@ -98,10 +108,11 @@ print(f"Your drink is {userDrink.name}, with {userDrink.floz} ounces and {userDr
 for x in drinkList:
   if userDrink.name != x.name:
     pureAlcOzDivision = "{:.2f}".format(float(userDrink.pureAlcOz) / float(x.pureAlcOz))
-    print(f"{drinkAmount} {userDrink.name} is equal to {pureAlcOzDivision} {x.name}s")
+    
+    print(f"{drinkAmount} {userDrinkdotName} is equal to {pureAlcOzDivision} {x.name}s")
+    
 #This now works!!!
 #-------------------
-# Now it doesnt work on VS code??
 
 # print: x amount of drinkAnswer is equal to x ammount of drink1 and x ammount of drink 2. #maybe do a forLoop here to cycle through the drinks when I add more
 # dont print drinkAnswer since they already typed that in
