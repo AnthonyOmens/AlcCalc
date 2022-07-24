@@ -1,16 +1,17 @@
 #Drink Class
 class Drink:
   
-    def __init__(alcDrink, name, floz, alcPercent):
+    def __init__(alcDrink, name, floz, alcPercent, drinkCon):
         alcDrink.name = name
         alcDrink.floz = floz
         alcDrink.alcPercent = alcPercent
         alcDrink.pureAlcOz = "{:.2f}".format(alcDrink.floz * alcDrink.alcPercent)
+        alcDrink.drinkCon = drinkCon
       
         
     def drinkLine(info):
         """Prints out name, oz, and alc percent of drink"""
-        print(f"{info.name} +  is  + {str(info.floz)} +  fl ounces and  + {str(info.alcPercent)} +  percent alcohol")
+        print(f"{info.name} is {str(info.floz)} fl ounces and {str(info.alcPercent)} percent alcohol")
         
     # def pureAlcOz(info):
     #     return "{:.2f}".format(info.floz * info.alcPercent)
@@ -40,17 +41,18 @@ shot = 1.5
 #drinkAbout = Drink("name", floz, alcPercent)
 
 
-sojuI = Drink("Soju", 12.7, .14)
-budLightI = Drink("Bud Light", 16, .05)
-burnettsI = Drink("Burnetts", shot, .40)
+sojuI = Drink("Soju", 12.7, .14, "Bottle")
+budLightI = Drink("Bud Light", 16, .05, "Can")
+burnettsI = Drink("Vodka", shot, .40, "Shot")
+
 #change burnetts to Vodka!! no one drinks this plastic stuff
 #we can also make one big nested dict with all the info instead of having these lines abouve and drinkListDict. Maybe a database and import Pandas??
 
 
-drinkList= [sojuI, budLightI, burnettsI]
-drinkListDict = { "Soju": sojuI, 
+drinkList= [sojuI , budLightI, burnettsI]
+drinkListDict = { "Soju": sojuI,
                  "Bud Light": budLightI, 
-                 "Burnetts": burnettsI}
+                 "Vodka": burnettsI}
 #make a list of drinks to easily cycle thrugh them. Maybe make a lists of drinks and their info instead of the I vars
 
 sojuI.drinkLine()
@@ -66,11 +68,8 @@ print(f"sojuI.floz * sojuI.alcPercent: {sojuI.floz * sojuI.alcPercent}")
 
 print("")
 
-print(f"sojuI.pureAlcOz: Soju has {sojuI.pureAlcOz} oz of pure alcohol")
-
-print(f"budLightI.pureAlcOz: Bud Light has {budLightI.pureAlcOz} oz of pure alcohol")
-
-print(f"burnettsI.pureAlcOz: Burnetts has {burnettsI.pureAlcOz} oz of pure alcohol")
+for x in drinkList:
+      print(f"1 {x.drinkCon} of {x.name} has {x.pureAlcOz} oz of pure alcohol")
 
 # make inputs. 
 # What are you drinking? (pick one)
@@ -78,6 +77,11 @@ print(f"burnettsI.pureAlcOz: Burnetts has {burnettsI.pureAlcOz} oz of pure alcoh
 userDrink = input(f"What are you drinking?\n{sojuI.name}, {budLightI.name}, {burnettsI.name}\nPlease type EXACT name\n").title()
 
 drinkAmount = 1
+
+drinkAmount = input("how many")
+if drinkAmount == 0:
+      drinkAmount = 1
+      print("Zero isint possible, we're going to make it")
 
 
 #print(f"drinkInputToDrinkI {drinkInputToDrinkI(userDrink).alcPercent}")
@@ -95,7 +99,10 @@ for x in drinkList:
 #print(f"drinkListDict[userDrink.name]: {drinkListDict[userDrink.name]}")
 
 userDrinkdotName = userDrink.name
+userDrinkdotdrinkCon = userDrink.drinkCon
 # why do I have to do this in VS Code and not Replit? well... IDK
+
+
 
 print(f"Your drink is {userDrinkdotName}, with {userDrink.floz} ounces and {userDrink.alcPercent} percent of alcohol")
 
@@ -112,10 +119,11 @@ print(f"Your drink is {userDrinkdotName}, with {userDrink.floz} ounces and {user
 
 for x in drinkList:
   if userDrink.name != x.name:
-    pureAlcOzDivision = "{:.2f}".format(float(userDrink.pureAlcOz) / float(x.pureAlcOz))
+    pureAlcOzDivision = "{:.2f}".format(float(userDrink.pureAlcOz) / float(x.pureAlcOz) * float(drinkAmount))
     
-    print(f"{drinkAmount} {userDrinkdotName} is equal to {pureAlcOzDivision} {x.name}s")
-    
+    print(f"{drinkAmount} {userDrinkdotdrinkCon}s of {userDrinkdotName} is equal to {pureAlcOzDivision} {x.drinkCon}s of {x.name}")
+
+
 #This now works!!!
 #-------------------
 
