@@ -9,7 +9,8 @@ class Drink:
       
         
     def drinkLine(info):
-        print(info.name + " is " + str(info.floz) + " fl ounces and " + str(info.alcPercent) + " percent alcohol")
+        """Prints out name, oz, and alc percent of drink"""
+        print(f"{info.name} +  is  + {str(info.floz)} +  fl ounces and  + {str(info.alcPercent)} +  percent alcohol")
         
     # def pureAlcOz(info):
     #     return "{:.2f}".format(info.floz * info.alcPercent)
@@ -38,9 +39,13 @@ class Drink:
 shot = 1.5
 #drinkAbout = Drink("name", floz, alcPercent)
 
+
 sojuI = Drink("Soju", 12.7, .14)
 budLightI = Drink("Bud Light", 16, .05)
 burnettsI = Drink("Burnetts", shot, .40)
+#change burnetts to Vodka!! no one drinks this plastic stuff
+#we can also make one big nested dict with all the info instead of having these lines abouve and drinkListDict. Maybe a database and import Pandas??
+
 
 drinkList= [sojuI, budLightI, burnettsI]
 drinkListDict = { "Soju": sojuI, 
